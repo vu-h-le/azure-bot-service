@@ -3,26 +3,16 @@ using Microsoft.Bot.Builder.FormFlow;
 
 public enum ProjectType
 {
-    [Describe("Application Development")]
-    AppDev = 1,
-    [Describe("Service Fabric")]
-    ASF,
-    [Describe("DevOps")]
+    ApplicationDevelopment = 1,
+    AzureServiceFabric,
     DevOps,
-    [Describe("Azure White Glove Onboarding")]
-    Onboarding,
-    [Describe("Big Data")]
+    AzureWhiteGloveOnboarding,
     BigData,
-    [Describe("Containers")]
     Containers,
-    [Describe("Enterprise WordPress")]
-    WordPress,
-    [Describe("IoT")]
-    IoT,
-    [Describe("Open Source")]
+    EnterpriseWordPress,
+    InternetOfThings,
     OSS,
-    [Describe("Monetizing Data Strategy")]
-    DataStrategy,
+    MonetizingDataStrategy,
     Other
 };
 public enum YesNo { Yes = 1, No };
@@ -38,13 +28,13 @@ public enum Segment { Global = 1, EPG, CAM, CTM, Partner, ISV };
           "Try again, I don't get \"{0}\".")]
 public class BasicForm
 {
-    [Prompt("Hi! What is your Microsoft email address?")]
+    [Prompt("Please provide your Microsoft email address so I can send emails to you after this process completes.")]
     [Pattern(@"^[a-zA-Z0-9._%+-]+@(?i)microsoft.com$")]
     [Template(TemplateUsage.NotUnderstood,
               "That doesn't seem like a validate Microsoft email address.  Can you please try again?")]
     public string MicrosoftEmailAddress { get; set; }
 
-    [Prompt("What is the {&}? {||}")]
+    [Prompt("Please provide the account name or TPID.")]
     public string AccountName { get; set; }
 
     [Prompt("Is this a HiPo account? {||}")]

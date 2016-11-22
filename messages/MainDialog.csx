@@ -49,7 +49,7 @@ public class MainDialog : IDialog<BasicForm>
                 await AddMessageToQueueAsync(JsonConvert.SerializeObject(queueMessage));
                 await context.PostAsync($"Message added to the queue.");
 
-                await context.PostAsync($"Thank you {form.MicrosoftEmailAddress}! Just type anything to restart it.");
+                await context.PostAsync($"Thank you!  An email message has been sent to {form.MicrosoftEmailAddress}. Just type anything to restart the process.");
             }
             else
             {
