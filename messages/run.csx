@@ -52,24 +52,24 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                                 reply.Text += $" {newMember.Name}";
                             }
                             reply.Text += "!";
-                            reply.Text += "  I am a chat bot and I will help you through the NCSA Team Request Process.";
+                            reply.Text += " I am a chat bot and I will help you through the NCSA Team Request Process.";
                             await client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
                     break;
                 case ActivityTypes.Trigger:
-                    //handle proactive Message from function
-                    log.Info("Trigger start");
-                    ITriggerActivity trigger = activity;
-                    var message = JsonConvert.DeserializeObject<Message>(((JObject)trigger.Value).GetValue("Message").ToString());
-                    var messageactivity = (Activity)message.ResumptionCookie.GetMessage();
+                    ////handle proactive Message from function
+                    //log.Info("Trigger start");
+                    //ITriggerActivity trigger = activity;
+                    //var message = JsonConvert.DeserializeObject<Message>(((JObject)trigger.Value).GetValue("Message").ToString());
+                    //var messageactivity = (Activity)message.ResumptionCookie.GetMessage();
 
-                    client = new ConnectorClient(new Uri(messageactivity.ServiceUrl));
-                    var triggerReply = messageactivity.CreateReply();
-                    triggerReply.Text = $"Triggered by Azure Function: {message.Text}";
-                    await client.Conversations.ReplyToActivityAsync(triggerReply);
-                    log.Info("Trigger end");
-                    break;
+                    //client = new ConnectorClient(new Uri(messageactivity.ServiceUrl));
+                    //var triggerReply = messageactivity.CreateReply();
+                    //triggerReply.Text = $"Triggered by Azure Function: {message.Text}";
+                    //await client.Conversations.ReplyToActivityAsync(triggerReply);
+                    //log.Info("Trigger end");
+                    //break;
                 case ActivityTypes.ContactRelationUpdate:
                 case ActivityTypes.Typing:
                 case ActivityTypes.DeleteUserData:
