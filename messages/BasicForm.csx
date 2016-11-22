@@ -29,7 +29,7 @@ public enum Segment { Global = 1, EPG, CAM, CTM, Partner, ISV };
 public class BasicForm
 {
     [Prompt("Please provide your Microsoft email address so I can send emails to you after this process completes.")]
-    //[Pattern(@"^[a-zA-Z0-9._%+-]+@(?i)microsoft.com$")]
+    [Pattern(@"^[a-zA-Z0-9._%+-]+@(?i)microsoft.com$")]
     [Template(TemplateUsage.NotUnderstood,
               "That doesn't seem like a valid Microsoft email address.  Can you please try again?")]
     public string MicrosoftEmailAddress { get; set; }
