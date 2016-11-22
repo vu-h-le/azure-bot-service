@@ -46,12 +46,12 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                         var newMembers = update.MembersAdded?.Where(t => t.Id != activity.Recipient.Id);
                         foreach (var newMember in newMembers)
                         {
-                            reply.Text = "Welcome";
+                            reply.Text = "Hi!  How are you";
                             if (!string.IsNullOrEmpty(newMember.Name))
                             {
                                 reply.Text += $" {newMember.Name}";
                             }
-                            reply.Text += "!";
+                            reply.Text += "?";
                             reply.Text += " I am a chat bot and I will help you through the NCSA Team Request Process.";
                             await client.Conversations.ReplyToActivityAsync(reply);
                         }
