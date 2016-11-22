@@ -42,7 +42,13 @@ public class MainDialog : IDialog<BasicForm>
                 var queueMessage = new Message
                 {
                     MicrosoftEmailAddress = form.MicrosoftEmailAddress,
-                    ProjectDescription = form.ProjectDescription
+                    AccountName = form.AccountName,
+                    HiPo = form.HiPo.ToString("g"),
+                    AccountSegment = form.AccountSegment.ToString("g"),
+                    ProjectedNetNewConsumption = form.ProjectedNetNewConsumption,
+                    ProjectLocation = form.ProjectLocation,
+                    ProjectDescription = form.ProjectDescription,
+                    ProjectType = form.ProjectType.ToString("g")
                 };
 
                 // write the queue Message to the queue
