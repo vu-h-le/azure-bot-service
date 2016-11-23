@@ -58,7 +58,9 @@ public class BasicForm
     public static IForm<BasicForm> BuildForm()
     {
         // Builds an IForm<T> based on BasicForm
-        return new FormBuilder<BasicForm>().Build();
+        return new FormBuilder<BasicForm>()
+            .Message("I am a chat bot and I will help you through the NCSA Team Request Process.")
+            .Build();
     }
 
     public static IFormDialog<BasicForm> BuildFormDialog(FormOptions options = FormOptions.PromptInStart)

@@ -52,7 +52,6 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                                 reply.Text += $" {newMember.Name}";
                             }
                             reply.Text += "?";
-                            reply.Text += " I am a chat bot and I will help you through the NCSA Team Request Process.";
                             await client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
